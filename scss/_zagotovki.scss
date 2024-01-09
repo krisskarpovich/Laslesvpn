@@ -1,0 +1,17 @@
+
+.title{
+    color: $colorOfTitle ;
+    font-family: $fontfamily;
+    @include adaptiv-value(font-size, 35, 25, 1);
+    font-weight: 500;
+    line-height: math.div(50, 35); 
+
+}
+
+.subtitle{
+    color: $colorOfTitle ;
+    font-family: $fontfamily;
+    @include adaptiv-value(font-size, 16, 14, 1);
+    font-weight: 400;
+    line-height: math.div(30,16); 
+}

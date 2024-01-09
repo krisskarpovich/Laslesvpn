@@ -1,0 +1,212 @@
+#prev-btn, #next-btn{
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: rem(50);
+    height: rem(50);
+    border-radius: 100%;
+    background-color: $colorRed;
+    z-index: 2;
+    opacity: 0.5;
+    display: none;
+
+}
+
+#next-btn{
+    right: 0;
+    left: auto;
+}
+
+.plan {
+    @include adaptiv-value(padding-bottom, 70, 30, 1);
+    @include adaptiv-value(margin-top, 70, 30, 1);
+
+    // .plan__container
+
+    &__container {
+        text-align: center;
+    }
+
+    // .plan__title
+
+    &__title {
+        
+    }
+
+    // .plan__subtitle
+
+    &__subtitle {
+        @include adaptiv-value(margin-top, 20, 10, 1);
+        @include adaptiv-value(margin-bottom, 20, 10, 1);
+        
+        
+    }
+
+    // .plan__block
+
+    &__block {
+        margin-top: 40px;
+        
+
+    }
+}
+.block-plan {
+    position: relative;
+
+   
+
+
+
+    display: flex;
+    
+    
+    justify-content: space-around;
+    // .block-plan__item
+
+    &__item {
+        @include adaptiv-value(padding-top, 80, 30, 1);
+        @include adaptiv-value(padding-bottom, 80, 30, 1);
+        @include adaptiv-value(padding-right, 65, 5, 1);
+        @include adaptiv-value(padding-left, 65, 5, 1);
+        border-radius: rem(10);
+        text-align: center;
+        border: 2px solid #DDDDDD;
+        
+    }
+
+    @media (max-width: 768px){
+        &__item {
+            display: none;
+            border: 0px;
+      
+        }
+
+    }
+
+}
+
+.item-plan {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    
+
+    // .item-plan__img
+
+    &__img {
+        @include adaptiv-value(margin-bottom, 20, 10, 1);
+    }
+    @media (max-width: $tablet){
+        &__img {display: none;}
+    }
+
+    // .item-plan__title
+
+    &__title {
+        
+        @include adaptiv-value(margin-bottom, 20, 10, 1);
+        color: $colorOfTitle;
+        font-size: rem(18);
+        font-weight: 500;
+        line-height: math.div(30,18);
+    }
+
+    // .item-plan__list
+
+    &__list {}
+
+    @media (max-width: 768px){
+        &__list {display: none;}
+    }
+
+    // .item-plan__price
+
+    &__price {
+        color: $colorOfTitle;
+        font-size: rem(25);
+        font-style: normal;
+        font-weight: 500;
+        line-height: math.div(30,25); /* 120% */
+        @include adaptiv-value(margin-bottom, 20, 10, 1);
+    }
+
+    &__price.span{
+        color: $colorOfText;
+    }
+
+    // .item-plan__btn
+
+    &__btn {
+        border-radius: rem(50);
+        border: rem(2) solid $colorRed;
+        color: $colorRed;
+        font-size: rem(16);
+        font-weight: 700;
+        padding: rem(13) rem(63);
+        background-color: #fff;
+    }
+
+    &__bottom{
+        @include adaptiv-value(margin-top, 50, 0, 1);
+        
+    }
+}
+
+@media (max-width: 768px){
+    .item-plan {
+        display: none;
+        
+    }
+
+    .item-plan._current {
+        display: block;
+        
+    }
+}
+
+
+.list-plan {
+
+    // .list-plan__point
+
+    &__point {
+        text-align: start;
+        display: flex;
+        @include adaptiv-value(gap, 20, 3, 1);
+    }
+
+    &__point:not(:last-child) {
+        @include adaptiv-value(margin-bottom, 10, 8, 1);
+    }
+
+    // .list-plan__icon
+
+    &__icon {
+
+    }
+
+    // .list-plan__text
+
+    &__text {
+        font-size: rem(14);
+        color: $colorOfText;
+        font-weight: 400;
+        line-height: math.div(30,14);
+    }
+}
+
+
+@media (max-width: 768px){
+    #prev-btn, #next-btn{
+        background: url('../img/left.png') 0 0 / 100% no-repeat;
+        display: block;
+    
+    }
+}
+
+
+
+
+

@@ -1,0 +1,137 @@
+@use "sass:math";
+
+@import "_practise";
+
+
+$fz: rem(16);
+$fontfamily: "Rubik";
+$colorOfTitle: #0B132A;
+$colorOfText: #4F5665;
+$colorWhite: #fff;
+$colorRed: #F53838;
+
+$minWidth: 320;
+$maxWidth: 1440;
+$maxWidthContainer: 1140;
+$containerPadding: 30;
+
+$responsiveType: 1;
+@import "_common";
+
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+
+$pc: em($containerWidth);
+$tablet: em(991);
+$mobile: em(767);
+$mobileSmall: em(479);
+
+@import "_nullstyle";
+
+
+
+body {
+    font-family: $fontfamily;
+    .lock &{
+        overflow: hidden;
+        touch-action: none;
+    }
+}
+
+
+
+
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    // .loaded&{
+
+    // }
+
+    >main{
+        flex: 1 1 auto;
+    }
+
+    > *{
+        min-width: 0;
+    }
+}
+
+//стили будут применяться ко всем
+//классам содержаищим *_container 
+//например header__container b nl 
+
+
+@if ($responsiveType==1){
+    //отзывчива
+    [class*="__container"] {
+        @if ($maxWidthContainer>0) {
+            max-width: rem($maxWidthContainer);
+            box-sizing: content-box;
+            margin: 0 auto;
+        }
+
+        @if($containerPadding>0) {
+            padding: 0 rem(math.div($containerPadding, 2))
+        }
+    }
+}else {
+    //по брейкпоинтам 
+    [class*="__container"] {
+        margin: 0 auto;
+        @if ($maxWidthContainer>0) {
+            max-width: rem($maxWidthContainer);
+            box-sizing: content-box;
+        }@else{
+            @if($containerPadding>0) {
+                padding: 0 rem(math.div($containerPadding, 2))
+            }
+        }
+
+        @media(max-width: $pc) {
+            max-width: rem(970);
+        }
+
+        @media(max-width: $tablet) {
+            max-width: rem(750);
+        }
+
+        @media(max-width: $mobile) {
+            max-width: none;
+            @if ($containerPadding>0 and $maxWidthContainer>0) {
+                padding : 0 rem(math.div($containerPadding, 2))
+            }
+        }
+    
+    }
+}
+
+
+@import "_zagotovki";
+
+@import "_header";
+
+@import "_main";
+
+@import "_cards";
+
+@import "_second-block";
+
+@import "_plan";
+
+@import "_reviews";
+
+@import "_subscribe"
+
+
+
+
+
+
+
+
+
+
